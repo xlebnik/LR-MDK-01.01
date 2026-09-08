@@ -26,6 +26,8 @@ namespace ConsoleApp1
 
             if (c > max) 
                 c = max;
+
+            Console.WriteLine("Максимальное значение:" + max);
         }
     }
 }
