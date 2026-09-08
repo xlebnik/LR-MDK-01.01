@@ -18,6 +18,14 @@ namespace ConsoleApp1
 
             Console.Write("Введите третье число");
             int c = int.Parse(Console.ReadLine());
+
+            int max = a;
+
+            if (b > max)
+                b = max;
+
+            if (c > max) 
+                c = max;
         }
     }
 }
