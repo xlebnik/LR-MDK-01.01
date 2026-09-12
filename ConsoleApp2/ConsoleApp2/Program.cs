@@ -8,8 +8,22 @@ namespace ConsoleApp2
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static long ReadNaturalNumber()
         {
+            while (true)
+            {
+                Console.Write("Введите натуральное число:");
+                string input = Console.ReadLine();
+
+                if (long.TryParse(input, out long number) && number > 0)
+                {
+                    return number;
+                }
+                Console.WriteLine("Ошибка, введите число больше нуля!");
+
+
+        }
         }
     }
 }
+
