@@ -28,7 +28,7 @@ namespace ConsoleApp2
         {
             int sum = 0;
 
-            while(number > )
+            while(number > 0)
             {
                 sum += (int)(number % 10);
                 number /= 10;
