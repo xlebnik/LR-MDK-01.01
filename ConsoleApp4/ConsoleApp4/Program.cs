@@ -21,10 +21,20 @@ namespace ConsoleApp4
             {
                 Console.WriteLine("Введите натуральное число:");
             }
-            while (!long.TryParse(Console.ReadLine(), out n)  n <= 0);
+            while (!long.TryParse(Console.ReadLine(), out n) || n <= 0);
 
             return n;
         }
+        static void Obratnoe(long n)
+        {
+            Console.Write("Число с цифрами в обратом порядке:");
 
+            while (n > 0)
+            {
+                Console.Write(n % 10);
+                n /= 10;
+            }
+
+        }
     }
 }
