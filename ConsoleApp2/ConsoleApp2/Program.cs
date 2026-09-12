@@ -20,9 +20,27 @@ namespace ConsoleApp2
                     return number;
                 }
                 Console.WriteLine("Ошибка, введите число больше нуля!");
+            }
 
-
+        
         }
+        static int SumDigits(long number)
+        {
+            int sum = 0;
+
+            while(number > )
+            {
+                sum += (int)(number % 10);
+                number /= 10;
+            }
+            return sum;
+        }
+        static void Main()
+        {
+            long number = ReadNaturalNumber();
+            int sum = SumDigits(number);
+
+            Console.WriteLine($"Сумма цифр числа {number} равна {sum}."); 
         }
     }
 }
