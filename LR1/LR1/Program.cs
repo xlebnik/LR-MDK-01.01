@@ -70,3 +70,18 @@ namespace LR1
 
             }
         }
+        static int GetSpidWash(int fabricType)
+        {
+            switch (fabricType)
+            {
+                case 1:
+                    return 800;
+                case 2:
+                    return 600;
+                case 3:
+                    return 400;
+                default:
+                    return 0;
+
+            }
+        }
