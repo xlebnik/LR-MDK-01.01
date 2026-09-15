@@ -24,4 +24,19 @@ namespace LR1
                 Console.WriteLine("Ошибочка! Данный вес должен быть больше нуля.");
             }
         }
-       
+        static long GetFabricType()
+        {
+            int type;
+
+            while (true)
+            {
+                Console.Write("Введите тип ткани:(1-хлопок, 2-синтетика, 3-шерсть.)");
+                if (int.TryParse(Console.ReadLine(), out type) &&
+                    type >= 1 && type <= 3)
+                {
+                    return type;
+
+                }
+
+            }
+        }
