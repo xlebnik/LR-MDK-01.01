@@ -55,3 +55,18 @@ namespace LR1
 
             }
         }
+        static int GetTemperature(int fabricType)
+        {
+            switch (fabricType)
+            {
+                case 1:
+                    return 40;
+                case 2:
+                    return 30;
+                case 3:
+                    return 20;
+                default:
+                    return 0;
+
+            }
+        }
