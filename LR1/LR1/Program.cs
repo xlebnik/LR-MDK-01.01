@@ -40,3 +40,18 @@ namespace LR1
 
             }
         }
+        static int GetWashTime(int fabricType)
+        {
+            switch (fabricType)
+            {
+                case 1:
+                    return 90;
+                case 2:
+                    return 60;
+                case 3:
+                    return 45;
+                default:
+                    return 0;
+
+            }
+        }
