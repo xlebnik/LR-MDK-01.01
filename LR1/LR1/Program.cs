@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Security.AccessControl;
 using System.Text;
@@ -85,3 +86,27 @@ namespace LR1
 
             }
         }
+
+        static void Printresultat (int WashTime, int Temperature, int SpidWash)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Время стрики:" + WashTime + "Минут");
+            Console.WriteLine("Температура:" + Temperature + "С");
+            Console.WriteLine("Скорость отжима" + SpidWash + "оборотов/минуту");
+    }
+
+    static void Main ()
+        {
+            double weight = GetWeight();
+            int fabricTime = GetFabricType();
+
+            int washTime = GetWashTime(fabricTime);
+            int temperature = GetTemperature(fabricTime);
+            int spidWash = GetSpidWash(fabricTime);
+
+            Printresultat(washTime, temperature, spidWash);
+
+
+        }
+    }
+}
