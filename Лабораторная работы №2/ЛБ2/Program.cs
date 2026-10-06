@@ -126,4 +126,16 @@ namespace ЛБ2
 
             return totalCost;
         }
+        static void PrintRemainingBooks()
+        {
+            Console.WriteLine("Осталось экземпляров:");
+
+            for (int i = 0; i < bookNames.Length; i++)
+            {
+                Console.WriteLine(
+                    $"{bookNames[i]} — {bookCopies[i]}");
+            }
+        }
+    }
+}
 
