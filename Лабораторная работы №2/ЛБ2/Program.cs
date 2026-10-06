@@ -55,4 +55,34 @@ namespace ЛБ2
                 requestedCopies[bookNumber - 1] += quantity;
             }
         }
+        static int ReadBookNumber()
+        {
+            while (true)
+            {
+                Console.Write("Введите номер книги (0 — конец выдачи): ");
+
+                if (int.TryParse(Console.ReadLine(), out int number) &&
+                    number >= 0 && number <= 5)
+                {
+                    return number;
+                }
+
+                Console.WriteLine("Ошибка: введите число от 0 до 5.");
+            }
+        }
+        static int ReadQuantity()
+        {
+            while (true)
+            {
+                Console.Write("Введите количество: ");
+
+                if (int.TryParse(Console.ReadLine(), out int quantity) &&
+                    quantity > 0)
+                {
+                    return quantity;
+                }
+
+                Console.WriteLine("Ошибка: количество должно быть больше нуля.");
+            }
+        }
 
