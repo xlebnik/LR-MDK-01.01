@@ -85,4 +85,45 @@ namespace ЛБ2
                 Console.WriteLine("Ошибка: количество должно быть больше нуля.");
             }
         }
+        static void ProcessOrders()
+        {
+            int insufficientBook = FindInsufficientBook();
+
+            if (insufficientBook != -1)
+            {
+                Console.WriteLine(
+                    $"Не хватает книги: {bookNames[insufficientBook]}");
+                return;
+            }
+
+            int totalCost = CalculateTotalCost();
+
+            for (int i = 0; i < bookNames.Length; i++)
+            {
+                bookCopies[i] -= requestedCopies[i];
+            }
+
+            Console.WriteLine($"Стоимость выдачи: {totalCost} руб.");
+        }
+        static int FindInsufficientBook()
+        {
+            for (int i = 0; i < bookNames.Length; i++)
+            {
+                if (requestedCopies[i] > bookCopies[i])
+                    return i;
+            }
+
+            return -1;
+        }
+        static int CalculateTotalCost()
+        {
+            int totalCost = 0;
+
+            for (int i = 0; i < bookNames.Length; i++)
+            {
+                totalCost += requestedCopies[i] * bookPrices[i];
+            }
+
+            return totalCost;
+        }
 
