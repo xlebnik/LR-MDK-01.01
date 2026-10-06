@@ -22,7 +22,24 @@ namespace ЛБ2
         static int[] bookCopies = { 10, 8, 12, 7, 6 };
 
         static int[] requestedCopies = new int[5];
-    }
-}
+        static void Main()
+        {
+            PrintBooks();
+            ReadOrders();
+            ProcessOrders();
+            PrintRemainingBooks();
+        }
+        static void PrintBooks()
+        {
+            Console.WriteLine("Книги в фонде:");
 
-        
+            for (int i = 0; i < bookNames.Length; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {bookNames[i]} — {bookPrices[i]} руб., {bookCopies[i]} экз.");
+            }
+
+            Console.WriteLine();
+        }
+
+
