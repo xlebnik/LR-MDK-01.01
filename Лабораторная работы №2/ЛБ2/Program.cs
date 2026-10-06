@@ -41,5 +41,18 @@ namespace ЛБ2
 
             Console.WriteLine();
         }
+        static void ReadOrders()
+        {
+            while (true)
+            {
+                int bookNumber = ReadBookNumber();
 
+                if (bookNumber == 0)
+                    break;
+
+                int quantity = ReadQuantity();
+
+                requestedCopies[bookNumber - 1] += quantity;
+            }
+        }
 
