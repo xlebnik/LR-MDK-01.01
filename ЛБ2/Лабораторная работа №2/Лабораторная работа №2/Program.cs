@@ -101,5 +101,27 @@ namespace LR2
 
             return order;
         }
+        static bool TryIssueBooks(
+    Dictionary<int, int> order,
+    out int totalCost,
+    out int missingBook)
+        {
+            totalCost = 0;
+            missingBook = -1;
+
+            foreach (var item in order)
+            {
+                int index = item.Key;
+                int quantity = item.Value;
+
+                if (books[index].Quantity < quantity)
+                {
+                    missingBook = index;
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
