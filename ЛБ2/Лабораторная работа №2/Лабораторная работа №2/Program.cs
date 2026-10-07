@@ -28,5 +28,15 @@ namespace LR2
     new Book("Братья Карамазовы", 450, 7),
     new Book("Мастер и Маргарита", 600, 6)
 };
+        static void PrintBooks()
+        {
+            Console.WriteLine("Книги в библиотеке:");
+
+            for (int i = 0; i < books.Length; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {books[i].Name} - {books[i].Price} руб. - {books[i].Quantity} экз.");
+            }
+        }
     }
 }
