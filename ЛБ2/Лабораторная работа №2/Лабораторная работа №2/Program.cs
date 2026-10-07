@@ -20,5 +20,13 @@ namespace LR2
             Price = price;
             Quantity = quantity;
         }
+        static Book[] books =
+{
+    new Book("Война и мир", 500, 10),
+    new Book("Анна Каренина", 400, 8),
+    new Book("Гарри Поттер", 350, 12),
+    new Book("Братья Карамазовы", 450, 7),
+    new Book("Мастер и Маргарита", 600, 6)
+};
     }
 }
