@@ -120,7 +120,15 @@ namespace LR2
                     return false;
                 }
             }
+            foreach (var item in order)
+            {
+                int index = item.Key;
+                int quantity = item.Value;
 
+                books[index].Quantity -= quantity;
+
+                totalCost += books[index].Price * quantity;
+            }
             return true;
         }
     }
