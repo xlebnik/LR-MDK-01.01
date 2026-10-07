@@ -38,5 +38,22 @@ namespace LR2
                     $"{i + 1}. {books[i].Name} - {books[i].Price} руб. - {books[i].Quantity} экз.");
             }
         }
+        static int ReadBookNumber()
+        {
+            while (true)
+            {
+                Console.Write("Введите номер книги (0 - закончить): ");
+
+                if (int.TryParse(Console.ReadLine(), out int number))
+                {
+                    if (number >= 0 && number <= books.Length)
+                    {
+                        return number;
+                    }
+                }
+
+                Console.WriteLine("Ошибка! Введите число от 0 до 5.");
+            }
+        }
     }
 }
