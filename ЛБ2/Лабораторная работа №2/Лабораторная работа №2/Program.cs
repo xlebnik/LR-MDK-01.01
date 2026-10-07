@@ -141,5 +141,32 @@ namespace LR2
                     $"{i + 1}. {books[i].Name} - осталось {books[i].Quantity} экз.");
             }
         }
+        static void Main(string[] args)
+        {
+            PrintBooks();
+
+            Dictionary<int, int> order = ReadOrder();
+
+            if (TryIssueBooks(order, out int totalCost, out int missingBook))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Выдача успешно оформлена.");
+                Console.WriteLine($"Стоимость выдачи: {totalCost} руб.");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine(
+                    $"Недостаточно экземпляров книги: {books[missingBook].Name}");
+            }
+
+            PrintRemaining();
+
+            Console.ReadKey();
+        }
     }
 }
+
+
+    
+
