@@ -55,5 +55,22 @@ namespace LR2
                 Console.WriteLine("Ошибка! Введите число от 0 до 5.");
             }
         }
+        static int ReadQuantity()
+        {
+            while (true)
+            {
+                Console.Write("Введите количество экземпляров: ");
+
+                if (int.TryParse(Console.ReadLine(), out int quantity))
+                {
+                    if (quantity > 0)
+                    {
+                        return quantity;
+                    }
+                }
+
+                Console.WriteLine("Ошибка! Количество должно быть больше 0.");
+            }
+        }
     }
 }
