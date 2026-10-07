@@ -131,5 +131,15 @@ namespace LR2
             }
             return true;
         }
+        static void PrintRemaining()
+        {
+            Console.WriteLine("Оставшиеся книги:");
+
+            for (int i = 0; i < books.Length; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {books[i].Name} - осталось {books[i].Quantity} экз.");
+            }
+        }
     }
 }
