@@ -6,13 +6,14 @@ using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LR1
+namespace LR2
 {
-    class Program
+    class Book
     {
-        static void Main(string[] args)
-        {
+        public string Name { get; set; }
+        public int Price { get; set; }
+        public int Quantity { get; set; }
+        
 
         }
     }
-}
