@@ -46,6 +46,7 @@
     <Compile Include="Book.cs" />
     <Compile Include="Input.cs" />
     <Compile Include="Library.cs" />
+    <Compile Include="MenuChoice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
