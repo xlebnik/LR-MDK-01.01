@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Лабораторная_работа__3
 {
-    internal class MenuChoice
-    {
+
+        enum MenuChoice
+        {
+            Finish = 0,
+            SelectBook = 1
+        }
     }
-}
