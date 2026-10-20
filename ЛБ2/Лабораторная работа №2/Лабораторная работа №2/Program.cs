@@ -1,43 +1,41 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LR2
 {
-    class Book
+    class Program
     {
-        public string Name { get; set; }
-        public int Price { get; set; }
-        public int Quantity { get; set; }
-
-        public Book(string name, int price, int quantity)
+        static List<string> names = new List<string>
         {
-            Name = name;
-            Price = price;
-            Quantity = quantity;
-        }
-        static Book[] books =
-{
-    new Book("Война и мир", 500, 10),
-    new Book("Анна Каренина", 400, 8),
-    new Book("Гарри Поттер", 350, 12),
-    new Book("Братья Карамазовы", 450, 7),
-    new Book("Мастер и Маргарита", 600, 6)
-};
+            "Война и мир",
+            "Анна Каренина",
+            "Гарри Поттер",
+            "Братья Карамазовы",
+            "Мастер и Маргарита"
+        };
+
+        static List<int> prices = new List<int>
+        {
+            500, 400, 350, 450, 600
+        };
+
+        static List<int> quantities = new List<int>
+        {
+            10, 8, 12, 7, 6
+        };
+
         static void PrintBooks()
         {
             Console.WriteLine("Книги в библиотеке:");
 
-            for (int i = 0; i < books.Length; i++)
+            for (int i = 0; i < names.Count; i++)
             {
                 Console.WriteLine(
-                    $"{i + 1}. {books[i].Name} - {books[i].Price} руб. - {books[i].Quantity} экз.");
+                    $"{i + 1}. {names[i]} - {prices[i]} руб. - {quantities[i]} экз.");
             }
         }
+
         static int ReadBookNumber()
         {
             while (true)
@@ -46,15 +44,17 @@ namespace LR2
 
                 if (int.TryParse(Console.ReadLine(), out int number))
                 {
-                    if (number >= 0 && number <= books.Length)
+                    if (number >= 0 && number <= names.Count)
                     {
                         return number;
                     }
                 }
 
-                Console.WriteLine("Ошибка! Введите число от 0 до 5.");
+                Console.WriteLine(
+                    $"Ошибка! Введите число от 0 до {names.Count}.");
             }
         }
+
         static int ReadQuantity()
         {
             while (true)
@@ -69,9 +69,11 @@ namespace LR2
                     }
                 }
 
-                Console.WriteLine("Ошибка! Количество должно быть больше 0.");
+                Console.WriteLine(
+                    "Ошибка! Количество должно быть больше 0.");
             }
         }
+
         static Dictionary<int, int> ReadOrder()
         {
             Dictionary<int, int> order = new Dictionary<int, int>();
@@ -86,7 +88,6 @@ namespace LR2
                 }
 
                 int quantity = ReadQuantity();
-
                 int index = number - 1;
 
                 if (order.ContainsKey(index))
@@ -101,63 +102,72 @@ namespace LR2
 
             return order;
         }
+
         static bool TryIssueBooks(
-    Dictionary<int, int> order,
-    out int totalCost,
-    out int missingBook)
+            Dictionary<int, int> order,
+            out int totalCost,
+            out int missingBook)
         {
             totalCost = 0;
             missingBook = -1;
 
-            foreach (var item in order)
+            foreach (KeyValuePair<int, int> item in order)
             {
                 int index = item.Key;
                 int quantity = item.Value;
 
-                if (books[index].Quantity < quantity)
+                if (quantities[index] < quantity)
                 {
                     missingBook = index;
                     return false;
                 }
             }
-            foreach (var item in order)
+
+            foreach (KeyValuePair<int, int> item in order)
             {
                 int index = item.Key;
                 int quantity = item.Value;
 
-                books[index].Quantity -= quantity;
-
-                totalCost += books[index].Price * quantity;
+                quantities[index] -= quantity;
+                totalCost += prices[index] * quantity;
             }
+
             return true;
         }
+
         static void PrintRemaining()
         {
+            Console.WriteLine();
             Console.WriteLine("Оставшиеся книги:");
 
-            for (int i = 0; i < books.Length; i++)
+            for (int i = 0; i < names.Count; i++)
             {
                 Console.WriteLine(
-                    $"{i + 1}. {books[i].Name} - осталось {books[i].Quantity} экз.");
+                    $"{i + 1}. {names[i]} - осталось {quantities[i]} экз.");
             }
         }
+
         static void Main(string[] args)
         {
             PrintBooks();
 
             Dictionary<int, int> order = ReadOrder();
 
-            if (TryIssueBooks(order, out int totalCost, out int missingBook))
+            if (TryIssueBooks(
+                order,
+                out int totalCost,
+                out int missingBook))
             {
                 Console.WriteLine();
                 Console.WriteLine("Выдача успешно оформлена.");
-                Console.WriteLine($"Стоимость выдачи: {totalCost} руб.");
+                Console.WriteLine(
+                    $"Стоимость выдачи: {totalCost} руб.");
             }
             else
             {
                 Console.WriteLine();
                 Console.WriteLine(
-                    $"Недостаточно экземпляров книги: {books[missingBook].Name}");
+                    $"Недостаточно экземпляров книги: {names[missingBook]}");
             }
 
             PrintRemaining();
@@ -168,5 +178,5 @@ namespace LR2
 }
 
 
-    
+
 
