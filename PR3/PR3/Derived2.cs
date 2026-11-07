@@ -10,7 +10,17 @@ namespace PR3
     {
         public override double GetDiscount()
         {
-            return 5;
+            if  (Quantity_ >= 5 && Quantity_ <= 10)
+            {
+                return 15;
+            }
+
+            else if (Quantity_ > 10)
+            {
+                return 25;
+            }
+
+            return 0;
         }
     }
 }
