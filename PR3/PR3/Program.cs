@@ -47,6 +47,17 @@ namespace PR3
             product6.SetPrice(160);
             product6.SetQuantity(80);
             products.Add(product6);
+
+            Console.WriteLine("Отчёт по товарам: \n");
+
+            foreach (Product product in products)
+            {
+                Console.WriteLine(
+                  product.GetName()+
+                  "| Цена: " + product.GetPrice()+
+                  "| Кол-во: " + product.GetQuantity()+
+                  "| Стоимость: "
+            }
         }
     }
 }

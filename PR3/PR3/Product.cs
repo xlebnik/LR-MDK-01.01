@@ -47,5 +47,10 @@ namespace PR3
         {
             Quantity_ = quantity;
         }
+
+        public double GetCost()
+        {
+            return Price_ * Quantity_;
+        }
     }
 }
