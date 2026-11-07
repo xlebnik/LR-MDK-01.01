@@ -17,6 +17,24 @@ namespace PR3
             product1.SetPrice(350);
             product1.SetQuantity(200);
             products.Add(product1);
+
+            Derived product2 = new Derived();
+            product2.SetName("Цветные карандаши Каляка-Маляка");
+            product2.SetPrice(400);
+            product2.SetQuantity(20);
+            products.Add(product2);
+
+            Derived product3 = new Derived();
+            product3.SetName("Краски акриловые");
+            product3.SetPrice(600);
+            product3.SetQuantity(150);
+            products.Add(product3);
+
+            Derived product4 = new Derived();
+            product4.SetName("Бумага цветная");
+            product4.SetPrice(250);
+            product4.SetQuantity(350);
+            products.Add(product4);
         }
     }
 }
