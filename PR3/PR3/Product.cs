@@ -15,6 +15,8 @@ namespace PR3
        public virtual double GetDiscount()
         {
             return 0;
+
+
         }
         
         public string GetName()

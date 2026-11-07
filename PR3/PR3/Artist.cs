@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PR3
 {
-    public class Derived2 : Product
+    public class Artist : Product
     {
         public override double GetDiscount()
         {
