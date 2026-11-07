@@ -52,5 +52,10 @@ namespace PR3
         {
             return Price_ * Quantity_;
         }
+
+        public double GetDiscountSum()
+        {
+            return GetCost() * GetDiscount() / 100;
+        }
     }
 }
