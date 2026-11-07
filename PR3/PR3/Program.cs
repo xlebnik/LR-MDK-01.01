@@ -35,6 +35,18 @@ namespace PR3
             product4.SetPrice(250);
             product4.SetQuantity(350);
             products.Add(product4);
+
+            Derived2 product5 = new Derived2();
+            product5.SetName("Простой карандаш Berlingo");
+            product5.SetPrice(50);
+            product5.SetQuantity(120);
+            products.Add(product5);
+
+            Derived2 product6 = new Derived2();
+            product6.SetName("Блокнот А5");
+            product6.SetPrice(160);
+            product6.SetQuantity(80);
+            products.Add(product6);
         }
     }
 }
