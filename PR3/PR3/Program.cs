@@ -53,11 +53,18 @@ namespace PR3
             foreach (Product product in products)
             {
                 Console.WriteLine(
-                  product.GetName()+
-                  "| Цена: " + product.GetPrice()+
-                  "| Кол-во: " + product.GetQuantity()+
-                  "| Стоимость: "
+                  product.GetName() +
+                  "| Цена: " + product.GetPrice() +
+                  "| Кол-во: " + product.GetQuantity() +
+                  "| Стоимость: " + product.GetCost() +
+                  "| Скидка: " + product.GetDiscount() + "%" +
+                  "| Сумма скидки: " + product.GetDiscountSum() +
+                  "| Итого: " + product.GetFinalCost()
+                  );
+
             }
+
+            Console.ReadKey();
         }
     }
 }
