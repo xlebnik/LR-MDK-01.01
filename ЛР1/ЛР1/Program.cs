@@ -91,5 +91,18 @@ namespace ЛР1
             Console.WriteLine("Температура:" + Temperature + "С");
             Console.WriteLine("Скорость отжима" + SpidWash + "оборотов/минуту");
         }
+        static void Main()
+        {
+            double weight = GetWeight();
+            int fabricTime = GetFabricType();
+
+            int washTime = GetWashTime(fabricTime);
+            int temperature = GetTemperature(fabricTime);
+            int spidWash = GetSpidWash(fabricTime);
+
+            Printresultat(washTime, temperature, spidWash);
+
+
+        }
     }
 }
