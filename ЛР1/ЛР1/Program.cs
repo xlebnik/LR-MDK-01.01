@@ -84,5 +84,12 @@ namespace ЛР1
 
             }
         }
+        static void Printresultat(int WashTime, int Temperature, int SpidWash)
+        {
+            Console.WriteLine();
+            Console.WriteLine("Время стрики:" + WashTime + "Минут");
+            Console.WriteLine("Температура:" + Temperature + "С");
+            Console.WriteLine("Скорость отжима" + SpidWash + "оборотов/минуту");
+        }
     }
 }
