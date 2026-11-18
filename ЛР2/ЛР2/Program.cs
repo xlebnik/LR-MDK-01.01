@@ -134,5 +134,48 @@ namespace ЛР2
 
             return true;
         }
+        static int PrintRemaining()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Оставшиеся книги:");
+
+            for (int i = 0; i < names.Count; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {names[i]} - осталось {quantities[i]} экз.");
+            }
+
+            return 0;
+        }
+
+        static int Main(string[] args)
+        {
+            PrintBooks();
+
+            Dictionary<int, int> order = ReadOrder();
+
+            if (TryIssueBooks(
+                order,
+                out int totalCost,
+                out int missingBook))
+            {
+                Console.WriteLine();
+                Console.WriteLine("Выдача успешно оформлена.");
+                Console.WriteLine(
+                    $"Стоимость выдачи: {totalCost} руб.");
+            }
+            else
+            {
+                Console.WriteLine();
+                Console.WriteLine(
+                    $"Недостаточно экземпляров книги: {names[missingBook]}");
+            }
+
+            PrintRemaining();
+
+            Console.ReadKey();
+
+            return 0;
+        }
     }
 }
