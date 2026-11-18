@@ -72,7 +72,7 @@ namespace ЛР2
                 }
 
                 Console.WriteLine(
-                    "Ошибка! Количество должно быть больше 0.");
+                    "Ошибочка! Количество должно быть больше 0.");
             }
         }
         static Dictionary<int, int> ReadOrder()
