@@ -75,5 +75,33 @@ namespace ЛР2
                     "Ошибка! Количество должно быть больше 0.");
             }
         }
+        static Dictionary<int, int> ReadOrder()
+        {
+            Dictionary<int, int> order = new Dictionary<int, int>();
+
+            while (true)
+            {
+                int number = ReadBookNumber();
+
+                if (number == 0)
+                {
+                    break;
+                }
+
+                int quantity = ReadQuantity();
+                int index = number - 1;
+
+                if (order.ContainsKey(index))
+                {
+                    order[index] += quantity;
+                }
+                else
+                {
+                    order.Add(index, quantity);
+                }
+            }
+
+            return order;
+        }
     }
 }
