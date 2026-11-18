@@ -103,5 +103,36 @@ namespace ЛР2
 
             return order;
         }
+        static bool TryIssueBooks(
+    Dictionary<int, int> order,
+    out int totalCost,
+    out int missingBook)
+        {
+            totalCost = 0;
+            missingBook = -1;
+
+            foreach (KeyValuePair<int, int> item in order)
+            {
+                int index = item.Key;
+                int quantity = item.Value;
+
+                if (quantities[index] < quantity)
+                {
+                    missingBook = index;
+                    return false;
+                }
+            }
+
+            foreach (KeyValuePair<int, int> item in order)
+            {
+                int index = item.Key;
+                int quantity = item.Value;
+
+                quantities[index] -= quantity;
+                totalCost += prices[index] * quantity;
+            }
+
+            return true;
+        }
     }
 }
