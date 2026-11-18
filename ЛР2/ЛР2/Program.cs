@@ -26,5 +26,17 @@ namespace ЛР2
         {
             10, 8, 12, 7, 6
         };
+        static int PrintBooks()
+        {
+            Console.WriteLine("Книги в библиотеке:");
+
+            for (int i = 0; i < names.Count; i++)
+            {
+                Console.WriteLine(
+                    $"{i + 1}. {names[i]} - {prices[i]} руб. - {quantities[i]} экз.");
+            }
+
+            return 0;
+        }
     }
 }
