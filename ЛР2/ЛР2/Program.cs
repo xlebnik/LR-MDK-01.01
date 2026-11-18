@@ -38,5 +38,42 @@ namespace ЛР2
 
             return 0;
         }
+        static int ReadBookNumber()
+        {
+            while (true)
+            {
+                Console.Write("Введите номер книги (0 - закончить): ");
+
+                if (int.TryParse(Console.ReadLine(), out int number))
+                {
+                    if (number >= 0 && number <= names.Count)
+                    {
+                        return number;
+                    }
+                }
+
+                Console.WriteLine(
+                    $"Ошибочка! Введите число от 0 до {names.Count}.");
+            }
+        }
+
+        static int ReadQuantity()
+        {
+            while (true)
+            {
+                Console.Write("Введите количество экземпляров: ");
+
+                if (int.TryParse(Console.ReadLine(), out int quantity))
+                {
+                    if (quantity > 0)
+                    {
+                        return quantity;
+                    }
+                }
+
+                Console.WriteLine(
+                    "Ошибка! Количество должно быть больше 0.");
+            }
+        }
     }
 }
